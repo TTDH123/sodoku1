@@ -1,3 +1,3 @@
-updated by 20260127
+updated by 20260128
 
-lecture 7 complete
+lecture 9/27 complete
