@@ -2,20 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://bi3x3u8p2noht" path="res://block.tscn" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://x2pj8ojxobwi" path="res://steve.tscn" id="1_hbghi"]
-[ext_resource type="Texture2D" uid="uid://c22togovg4puv" path="res://icon.svg" id="3_hn12h"]
-[ext_resource type="Script" uid="uid://c2argemgldj4u" path="res://icon.gd" id="4_ihfcg"]
+[ext_resource type="Environment" uid="uid://bah0aky2cpbtk" path="res://Resources/Level_1_environment.tres" id="4_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://bmcfoegtp64pf" path="res://coin.tscn" id="5_rka8t"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rka8t"]
+albedo_color = Color(0.21066509, 0.1183, 0.91, 1)
+roughness = 0.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_ilcil"]
+material = SubResource("StandardMaterial3D_rka8t")
 size = Vector3(10, 0.5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3hls8"]
 size = Vector3(10, 0.5, 10)
 
 [node name="Level1" type="Node3D" unique_id=806721641]
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1269679230]
-transform = Transform3D(1, 0, 0, 0, 0.89238113, 0.45128253, 0, -0.45128253, 0.89238113, 0.018920898, 1.8293457, 6.947296)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1553258083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2667867, 0)
@@ -31,7 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 0.48923025, 0.87215465, 0, -0.87215465, 0.48
 shadow_enabled = true
 
 [node name="Steve" parent="." unique_id=1943520994 instance=ExtResource("1_hbghi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28467703, 3.0229545, -2.6242108)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28467703, 0.84098685, -2.6242108)
 
 [node name="Blocks" type="Node3D" parent="." unique_id=926013420]
 
@@ -47,10 +48,8 @@ transform = Transform3D(1, 0, 0, 0, 0.616665, -0.78722584, 0, 0.78722584, 0.6166
 [node name="Block4" parent="Blocks" unique_id=1906254860 instance=ExtResource("1_3hls8")]
 transform = Transform3D(1, 0, 0, 0, 0.62540615, -0.7802996, 0, 0.7802996, 0.62540615, 0, 5.126117, 0)
 
-[node name="Icon" type="Sprite3D" parent="." unique_id=175900713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9967189, 2.6380835)
-texture = ExtResource("3_hn12h")
-script = ExtResource("4_ihfcg")
-
 [node name="Coin1" parent="." unique_id=349820549 instance=ExtResource("5_rka8t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7033417, 0.7657542, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1471061893]
+environment = ExtResource("4_ihfcg")

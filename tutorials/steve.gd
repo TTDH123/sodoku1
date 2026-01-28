@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 
 
 func _physics_process(delta: float) -> void:
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -26,3 +27,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+	# 카메라 컨트롤러가 steve의 위치와 일치하게 함
+	$Camera_Controller.position = lerp($Camera_Controller.position,position,0.15)
